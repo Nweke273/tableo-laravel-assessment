@@ -1,17 +1,17 @@
 <?php
 function getServiceTimesForRestaurant(Restaurant $restaurant, Carbon $date, $ignoreBookingDuration = false)
 {
-    // Initialize arrays to hold booking times and filtered booking times
+    // Initialize arrays to store booking times and filtered booking times
     $booking_times = [];
     $filtered_booking_times = [];
 
     // Initialize an array for opening hours
     $opening_hours = [];
 
-    // Determine the day of the week from the provided date
+    // Determine the day of the week from the provided date passed as a parameter to the method
     $day = $date->englishDayOfWeek;
 
-    // Get the default booking time step in minutes (e.g., 15 or 30 minutes)
+    // Get the default booking time step in minutes 
     $step = $restaurant->default_booking_time_step_minutes;
 
     try {
@@ -33,7 +33,7 @@ function getServiceTimesForRestaurant(Restaurant $restaurant, Carbon $date, $ign
     $skip = []; // Initialize an array to skip certain times, if needed
 
     foreach ($service_hours as $service_hour) {
-        $c++; // Increment a counter (the purpose of this counter is unclear from the code snippet)
+        $c++; // Increment counter 
 
         // Create Carbon instances for the opening and closing times
         $open = Carbon::createFromFormat('H:i:s', $service_hour->open);
