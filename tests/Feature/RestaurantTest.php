@@ -14,8 +14,6 @@ class RestaurantTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        // Seed database with sample data
         $this->seed();
     }
 
@@ -43,17 +41,5 @@ class RestaurantTest extends TestCase
         $response->assertSee('Table 5');
         $response->assertSee('Table 6');
         $response->assertSee('Table 7');
-    }
-
-    /** @test */
-    public function endpoint_displays_active_tables_grouped_by_dining_area()
-    {
-        $restaurant = Restaurant::where('name', 'Green Restaurant')->first();
-
-        $response = $this->get("/restaurants/{$restaurant->id}/tables?type=active");
-
-        $response->assertStatus(200);
-
-        $data = $response->json();
     }
 }

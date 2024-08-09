@@ -1,60 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<style>
-    .tables-container {
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 0 auto;
-        font-family: 'Arial', sans-serif;
-    }
-
-    thead {
-        background-color: #007bff;
-        color: gray;
-    }
-
-    th,
-    td {
-        padding: 12px 15px;
-        border: 1px solid #ddd;
-    }
-
-    th {
-        text-align: left;
-        font-weight: bold;
-    }
-
-    tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tbody tr:hover {
-        background-color: #e9ecef;
-    }
-
-    .group-name {
-        background-color: #e9ecef;
-        font-weight: bold;
-    }
-
-    #tables-loader {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100px;
-        /* Adjust height as needed */
-    }
-
-    #tables-loader .spinner-border {
-        margin-top: 10px;
-    }
-</style>
-
 <div id="main-wrapper">
     <div class="content-body">
         <!-- row -->
@@ -104,7 +49,6 @@
                                                     <span class="sr-only">Loading...</span>
                                                 </div>
                                             </div>
-                                            <!-- Tables will be inserted here -->
                                         </div>
 
                                     </div>

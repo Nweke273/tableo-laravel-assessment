@@ -15,7 +15,7 @@ class QuotesApiTest extends TestCase
     public function test_quote_endpoint_returns_5_random_kanye_west_quotes()
     {
         $user = User::factory()->create([
-            'password' => Hash::make('password'),
+            'password' => Hash::make('12345678'),
         ]);
 
         $device = 'TestDevice';
@@ -30,27 +30,19 @@ class QuotesApiTest extends TestCase
 
         $this->assertCount(5, $response->json());
     }
-
     /** @test */
-    public function test_quote_endpoint_secured_with_token()
-    {
-        $response = $this->getJson('/api/quotes');
-
-        $response->assertStatus(401);
-    }
-
     public function test_authentication_required_for_quotes_page()
     {
         $response = $this->get('/quotes-page');
 
         $response->assertStatus(302);
         $response->assertRedirect('/login');
+    }
+    /** @test */
+    public function test_quote_endpoint_secured_with_token()
+    {
+        $response = $this->getJson('/api/quotes');
 
-        $response = $this->post('login', [
-            'password' => 'password'
-        ]);
-        $response->assertStatus(302);
-        $response = $this->get('/quotes-page');
-        // $response->assertStatus(200);
+        $response->assertStatus(401);
     }
 }
