@@ -38,8 +38,8 @@
             <nav class="navbar navbar-expand">
                 <div class="collapse navbar-collapse justify-content-between">
                     <ul class="navbar-nav header-right">
-                        <li class="nav-item dropdown header-profile">
-                            <a class="nav-link" href="javascript::void[0]" role="button" data-bs-toggle="dropdown">
+                        <li class="nav-item dropdown header-profile" onclick="window.location='/'">
+                            <a class="nav-link" href="/" role="button" data-bs-toggle="dropdown">
                                 <div class="header-info">
                                     <span>Hello, <strong>From Tableo</strong></span>
                                 </div>
