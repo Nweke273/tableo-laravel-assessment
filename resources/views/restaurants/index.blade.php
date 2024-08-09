@@ -15,8 +15,6 @@
                                         <small class="mb-0">Find a restaurant of your choice and view a reservation</small>
                                     </div>
                                 </div>
-
-
                                 <div class="card-body tab-content pt-3">
                                     <div class="tab-pane fade show active" id="monthly1">
                                         <div class="row gy-4" id="favourite-itemsContent">
@@ -32,14 +30,19 @@
                                                             <a class="text-dark" href="">{{ $restaurant->name ?? '' }}</a>
                                                         </h5>
                                                         <div class="d-flex justify-content-center gap-2">
-                                                            <button class="view-tables-btn btn btn-primary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="all">View Tables</button>
-                                                            <button class="view-tables-btn btn btn-secondary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="active">Active Tables</button>
+                                                            <button class="view-tables-btn btn btn-primary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="all">
+                                                                View Tables
+                                                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                                            </button>
+                                                            <button class="view-tables-btn btn btn-secondary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="active">
+                                                                Active Tables
+                                                                <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             @endforeach
-
                                         </div>
 
                                         <div class="tables-container mt-4">
@@ -50,8 +53,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
+
                                 </div>
 
                             </div>
