@@ -1,14 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div id="main-wrapper">
-    <div class="container-fluid text-center mt-5">
+    <div class="container-fluid text-center mt-5 mb-5">
         <h1>WELCOME TO TABLEO</h1>
     </div>
-    <div class="container-fluid full-height d-flex justify-content-center align-items-center">
+    <div class="container-fluid d-flex justify-content-center align-items-center mt-5">
 
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <!-- Card 1 -->
                 <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6 mb-4">
                     <div class="widget-stat card">
                         <a href="/restaurants">
@@ -28,7 +27,6 @@
 
                     </div>
                 </div>
-                <!-- Card 2 -->
                 <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6 mb-4">
                     <div class="widget-stat card">
                         <a href="/quotes-page">

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +23,6 @@
 </head>
 
 <body>
-
     <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
@@ -43,7 +39,7 @@
 
                         </div>
                     </div>
-
+                    @if(url()->current() != url('/'))
                     <ul class="navbar-nav header-right">
                         <li class="nav-item dropdown header-profile">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
@@ -58,6 +54,12 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 @if(Auth::check())
+                                <a href="/" class="dropdown-item ai-icon">
+                                    <svg id="icon-home" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"></path>
+                                        <path d="M9 22V12h6v10"></path>
+                                    </svg>
+                                    <span class="ms-2">Home</span></a>
                                 <a href="#" class="dropdown-item ai-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -83,6 +85,7 @@
                         </li>
 
                     </ul>
+                    @endif
                 </div>
             </nav>
         </div>
