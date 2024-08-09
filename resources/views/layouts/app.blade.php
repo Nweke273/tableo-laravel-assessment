@@ -48,7 +48,7 @@
                         <li class="nav-item dropdown header-profile">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                                 <div class="header-info">
-                                    <span>Hello, <strong>From Tableo</strong></span>
+                                    <span class="btn btn-sm"><strong>Menu</strong></span>
                                 </div>
                                 <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -57,7 +57,7 @@
                                 </svg>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-
+                                @if(Auth::check())
                                 <a href="#" class="dropdown-item ai-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
@@ -71,12 +71,14 @@
                                     @csrf
                                     @method('POST')
                                 </form>
+                                @else
                                 <a href="/" class="dropdown-item ai-icon">
                                     <svg id="icon-home" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M3 9l9-7 9 7v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"></path>
                                         <path d="M9 22V12h6v10"></path>
                                     </svg>
                                     <span class="ms-2">Home</span></a>
+                                @endif
                             </div>
                         </li>
 
