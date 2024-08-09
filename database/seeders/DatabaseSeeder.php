@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Table;
+use App\Models\User;
 use App\Models\DiningArea;
 use App\Models\Restaurant;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +21,9 @@ class DatabaseSeeder extends Seeder
     {
 
         DB::transaction(function () {
+            User::create([
+                'password' => Hash::make('12345678')
+            ]);
             $indoor = DiningArea::create(['name' => 'Indoor']);
             $outdoor = DiningArea::create(['name' => 'Outdoor']);
             $outdoorTerrace = DiningArea::create(['name' => 'Outdoor Terrace']);

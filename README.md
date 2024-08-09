@@ -4,12 +4,12 @@
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repo.git
+    git clone https://github.com/Nweke273/tableo-laravel-assessment.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd your-repo
+    cd tableo-laravel-assessment
     ```
 
 3. Install dependencies:
@@ -34,10 +34,11 @@
     php artisan migrate
     ```
 
-8. Seed your database (if needed):
+8. Seed your database:
     ```bash
     php artisan db:seed
     ```
+8. Quote access password: 12345678
 
 ## Running Tests
 
