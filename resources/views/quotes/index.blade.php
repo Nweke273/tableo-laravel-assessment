@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<div id="main-wrapper" class="container-fluid full-height d-flex justify-content-center align-items-center mt-5">
+<div id="main-wrapper" class="container-fluid d-flex justify-content-center align-items-center mt-5">
     <div id="loader-text">
         <h3 class="text-primary">Fetching Quotes.....</h3>
     </div>

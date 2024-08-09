@@ -3,6 +3,7 @@
 
 
 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,28 +38,48 @@
         <div class="header-content">
             <nav class="navbar navbar-expand">
                 <div class="collapse navbar-collapse justify-content-between">
+                    <div class="header-left">
+                        <div class="input-group search-area">
+
+                        </div>
+                    </div>
+
                     <ul class="navbar-nav header-right">
-                        <li class="nav-item dropdown header-profile" onclick="window.location='/'">
-                            <a class="nav-link" href="/" role="button" data-bs-toggle="dropdown">
+                        <li class="nav-item dropdown header-profile">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
                                 <div class="header-info">
                                     <span>Hello, <strong>From Tableo</strong></span>
                                 </div>
-                                <img src="images/profile/pic1.jpg" width="20" alt="">
+                                <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
                             </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+
+                                <a href="#" class="dropdown-item ai-icon" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                        <polyline points="16 17 21 12 16 7"></polyline>
+                                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                                    </svg>
+                                    <span class="ms-2">Logout</span>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('POST')
+                                </form>
+                                <a href="/" class="dropdown-item ai-icon">
+                                    <svg id="icon-home" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"></path>
+                                        <path d="M9 22V12h6v10"></path>
+                                    </svg>
+                                    <span class="ms-2">Home</span></a>
+                            </div>
                         </li>
-                        @if(Auth::check())
-                        <li style="position: absolute; right:4px">
-                            <form action="{{ route('logout') }}" method="POST" class="mt-3">
-                                @csrf
-                                @method('POST')
-                                <button type="submit" class="btn btn-danger">Log out</button>
-                            </form>
-                        </li>
-                        @elseif (url()->current() != url('/'))
-                        <li style="position: absolute; right:4px">
-                            <a href="/" class="btn btn-primary mt-2">Home</a>
-                        </li>
-                        @endif
+
                     </ul>
                 </div>
             </nav>

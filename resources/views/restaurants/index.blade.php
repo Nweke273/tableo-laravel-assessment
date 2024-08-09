@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div id="main-wrapper">
-    <div class="content-body">
+    <div class="content-body" style="margin: 0px;">
         <!-- row -->
         <div class="container-fluid">
             <div class="row">
