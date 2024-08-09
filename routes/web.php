@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -8,11 +11,21 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
+Route::get('/restaurants/{id}/tables', [RestaurantController::class, 'getTables']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/quotes-page', [QuoteController::class, 'index'])->name('quotes.index');
+    Route::get('/quotes', [QuoteController::class, 'fetchQuotes']);
+});
+
+require __DIR__ . '/auth.php';
