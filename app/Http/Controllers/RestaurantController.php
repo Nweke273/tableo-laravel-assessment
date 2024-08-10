@@ -31,18 +31,11 @@ class RestaurantController extends Controller
                 'name' => $table->name,
                 'min_capacity' => $table->minimum_capacity,
                 'max_capacity' => $table->maximum_capacity,
-                'status' => $table->active == 1 ? 'Active' : 'Unavailable',
+                'status' => $table->active == 1 ? 'Active' : 'Inactive',
                 'dining_area' => $table->diningArea->name
             ];
         });
 
         return response()->json($formattedTables);
-    }
-
-
-    public function showActiveTables(Restaurant $restaurant)
-    {
-        $activeTables = $restaurant->tables->where('active', true)->groupBy('dining_area_id');
-        return view('restaurants.active_tables', compact('activeTables'));
     }
 }

@@ -1,8 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .active-button {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+</style>
 <div id="main-wrapper">
     <div class="content-body" style="margin: 0px;">
-        <!-- row -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 col-lg-12 col-lg-9 col-md-12">
@@ -30,8 +36,8 @@
                                                             <a class="text-dark" href="">{{ $restaurant->name ?? '' }}</a>
                                                         </h5>
                                                         <div class="d-flex justify-content-center gap-2">
-                                                            <button class="view-tables-btn btn btn-primary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="all">
-                                                                View Tables
+                                                            <button class="view-tables-btn btn btn-secondary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="all">
+                                                                Tables
                                                                 <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                                             </button>
                                                             <button class="view-tables-btn btn btn-secondary btn-sm btn-rounded px-4" data-id="{{ $restaurant->id }}" data-type="active">

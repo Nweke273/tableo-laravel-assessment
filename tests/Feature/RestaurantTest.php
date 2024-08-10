@@ -41,5 +41,7 @@ class RestaurantTest extends TestCase
         $response->assertSee('Table 5');
         $response->assertSee('Table 6');
         $response->assertSee('Table 7');
+        $response->assertDontSee('Table 14');
+        $response->assertDontSee('Table 14');
     }
 }

@@ -23,9 +23,6 @@ Route::get('/', function () {
 Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
 Route::get('/restaurants/{id}/tables', [RestaurantController::class, 'getTables']);
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/quotes-page', [QuoteController::class, 'index'])->name('quotes.index');
-    Route::get('/quotes', [QuoteController::class, 'fetchQuotes']);
-});
+Route::get('/quotes-page', [QuoteController::class, 'index'])->name('quotes.index');
 
 require __DIR__ . '/auth.php';

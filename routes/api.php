@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', LoginController::class);
+Route::get('/quotes-page', [QuoteController::class, 'index'])->name('quotes.index');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/quotes', [QuoteController::class, 'fetchQuotes']);

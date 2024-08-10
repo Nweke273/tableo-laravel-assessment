@@ -46,6 +46,12 @@
     ```
 9. Quote access password: 12345678
 
+10. Serve the application:
+
+    ```bash
+    php artisan serve
+    ```
+
 ## Running Tests
 
 To run tests, use PHPUnit: php artisan test

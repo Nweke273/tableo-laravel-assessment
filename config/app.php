@@ -17,6 +17,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'kanye_quote_url' => env('KANYE_QUOTE_API_URL', 'https://api.kanye.rest'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
