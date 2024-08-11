@@ -275,6 +275,9 @@ body {
   animation: spinner-border .75s linear infinite;
 }
 
+.group-name{
+  background-color: beige !important;
+}
 .d-none {
   display: none !important;
 }
@@ -749,6 +752,8 @@ progress {
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 22px;
+    margin-bottom: 22px;
 }
 
 .quote-item p {

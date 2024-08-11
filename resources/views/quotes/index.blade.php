@@ -15,7 +15,7 @@
             </div>
             @endforeach
         </div>
-        <div class="w-100 d-flex justify-content-center">
+        <div class="w-100 d-flex justify-content-center mb-5">
             <button id="refresh-quotes" class="btn btn-primary mt-3">
                 <span id="button-text">Refresh Quotes</span>
                 <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
@@ -24,5 +24,3 @@
     </div>
 </div>
 @endsection
-
-<script src="{{ asset('js/quotes.js') }}"></script>

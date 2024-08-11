@@ -28,35 +28,27 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6 mb-4">
-                    <div class="widget-stat card" onclick="checkToken()" style="cursor: pointer;">
-                        <div class="card-body p-4">
-                            <div class="media ai-icon">
-                                <span class="me-3 bgl-danger text-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open">
-                                        <path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13M4 6h16M4 6h16M4 19h16"></path>
-                                        <path d="M4 6h16M4 19h16"></path>
-                                    </svg>
-                                </span>
-                                <div class="media-body">
-                                    <h4 class="mb-0">Read Quotes</h4>
+                    <a href="/quotes-page">
+                        <div class="widget-stat card" style="cursor: pointer;">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="me-3 bgl-danger text-danger">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open">
+                                            <path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13M4 6h16M4 6h16M4 19h16"></path>
+                                            <path d="M4 6h16M4 19h16"></path>
+                                        </svg>
+                                    </span>
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Read Quotes</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    function checkToken() {
-        var accessToken = localStorage.getItem("accessToken");
-        if (!accessToken) {
-            window.location.href = "/login";
-        } else {
-            window.location.href = "/quotes-page";
-        }
-    }
-</script>
 @endsection

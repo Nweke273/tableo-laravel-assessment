@@ -80,6 +80,6 @@ Quote access password:
 ## Running Tests
 
 To run tests, use PHPUnit:
-Make sure to uncomment the two commented lines in the phpunit.xml
+Make sure to uncomment the two commented lines in the phpunit.xml, then run the command below to test
  
     php artisan test
