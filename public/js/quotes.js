@@ -1,16 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
+    document.body.style.visibility = "hidden";
     $("#quote").hide();
     $("#loader-text").removeClass("d-none");
+
     function checkToken() {
         var accessToken = localStorage.getItem("accessToken");
         if (!accessToken) {
             window.location.href = "/login";
         } else {
-            fetchQuotes();
+            document.body.style.visibility = "visible";
+            $("#quote").show();
+            $("#loader-text").hide();
         }
     }
-
-    checkToken();
 
     function fetchQuotes() {
         var accessToken = localStorage.getItem("accessToken");
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         })
             .done(function (data) {
-                console.log(data);
                 $("#quotes-list").empty();
                 data.forEach(function (quote) {
                     $("#quotes-list").append(
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
                 $("#loader-text").hide();
                 $("#quote").show();
+                document.body.style.visibility = "visible";
             })
             .fail(function (xhr) {
                 if (xhr.status === 401) {
@@ -40,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
     }
+
+    checkToken();
 
     $("#refresh-quotes").click(function () {
         var $button = $(this);

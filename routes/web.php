@@ -19,10 +19,12 @@ use App\Http\Controllers\RestaurantController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('login', function () {
+    return view('auth.login');
+});
 
 Route::get('/restaurants', [RestaurantController::class, 'index'])->name('restaurants.index');
 Route::get('/restaurants/{id}/tables', [RestaurantController::class, 'getTables']);
 
 Route::get('/quotes-page', [QuoteController::class, 'index'])->name('quotes.index');
 
-require __DIR__ . '/auth.php';

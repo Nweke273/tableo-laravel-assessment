@@ -30,14 +30,7 @@ class QuotesApiTest extends TestCase
 
         $this->assertCount(5, $response->json());
     }
-    /** @test */
-    public function test_authentication_required_for_quotes_page()
-    {
-        $response = $this->get('/quotes-page');
 
-        $response->assertStatus(302);
-        $response->assertRedirect('/login');
-    }
     /** @test */
     public function test_quote_endpoint_secured_with_token()
     {

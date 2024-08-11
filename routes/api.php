@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Auth\LoginController;
-use App\Http\Controllers\QuoteController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\QuoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', LoginController::class);
-Route::get('/quotes-page', [QuoteController::class, 'index'])->name('quotes.index');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/quotes', [QuoteController::class, 'fetchQuotes']);

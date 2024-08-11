@@ -264,6 +264,26 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   
+      /* Example spinner CSS */
+.spinner-border {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 0.2em solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spinner-border .75s linear infinite;
+}
+
+.d-none {
+  display: none !important;
+}
+
+@keyframes spinner-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
   .tables-container .row {
     display: flex;
     flex-wrap: wrap;
