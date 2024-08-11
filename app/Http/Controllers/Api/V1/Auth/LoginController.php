@@ -16,7 +16,14 @@ class LoginController extends Controller
         $request->validate([
             'password' => ['required'],
         ]);
+
         $user = User::first();
+
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'password' => ['The provided credentials are incorrect.'],
+            ]);
+        }
 
         if (!Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([

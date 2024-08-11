@@ -33,7 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 $("#quote").show();
             })
             .fail(function (xhr) {
-                console.error("Error loading quotes:", xhr.responseText);
+                if (xhr.status === 401) {
+                    window.location.href = "/login";
+                } else {
+                    alert("An error occurred. Please try again.");
+                }
             });
     }
 
