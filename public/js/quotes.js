@@ -2,26 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = "hidden";
     $("#quote").hide();
     $("#loader-text").removeClass("d-none");
-
-    function checkToken() {
-        var accessToken = localStorage.getItem("accessToken");
-        if (!accessToken) {
-            window.location.href = "/login";
-        } else {
-            document.body.style.visibility = "visible";
-            $("#quote").show();
-            $("#loader-text").hide();
-        }
-    }
-
+    document.body.style.visibility = "visible";
+    $("#quote").show();
+    $("#loader-text").hide();
     function fetchQuotes() {
-        var accessToken = localStorage.getItem("accessToken");
         return $.ajax({
             url: "/api/quotes",
             method: "GET",
-            headers: {
-                Authorization: "Bearer " + accessToken,
-            },
         })
             .done(function (data) {
                 $("#quotes-list").empty();
@@ -42,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
     }
-
-    checkToken();
 
     $("#refresh-quotes").click(function () {
         var $button = $(this);
