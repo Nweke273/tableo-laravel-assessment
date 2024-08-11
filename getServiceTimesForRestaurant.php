@@ -17,11 +17,11 @@ function getServiceTimesForRestaurant(Restaurant $restaurant, Carbon $date, $ign
     try {
         // Check if the restaurant inSpecialServiceHoursActive are active for the given date
         if ($ssh = $restaurant->inSpecialServiceHoursActive($date)) {
-            // Get special service hours for the day and hide unnecessary fields
+            // Get special service hours for the day and hide 'id', 'day', 'restaurant_id','created_at' and 'updated_at'
             $service_hours = $restaurant->specialServiceHours($day, $ssh->id)
                 ->makeHidden('id', 'day', 'restaurant_id', 'created_at', 'updated_at');
         } else {
-            // Get regular service hours for the day and hide unnecessary fields
+            // Get regular service hours for the day and hide 'id', 'day', 'restaurant_id','created_at' and 'updated_at'
             $service_hours = $restaurant->serviceHours($day)
                 ->makeHidden('id', 'day', 'restaurant_id', 'created_at', 'updated_at');
         }
@@ -33,10 +33,12 @@ function getServiceTimesForRestaurant(Restaurant $restaurant, Carbon $date, $ign
     $skip = []; // Initialize an array to skip certain times, if needed
 
     foreach ($service_hours as $service_hour) {
-        $c++; // Increment counter (though i didn't see where $c it was initialized)
+        $c++; // Increment counter (though i didn't see where $c was initialized)
 
-        // Create Carbon instances for the opening and closing times
+        // Create a Carbon instance for the opening time using the 'H:i:s' format
         $open = Carbon::createFromFormat('H:i:s', $service_hour->open);
+
+        // Create a Carbon instance for the closing time using the 'H:i:s' format
         $close = Carbon::createFromFormat('H:i:s', $service_hour->close);
 
         // If the service hour enforce_one_sitting, add only the opening time
@@ -46,13 +48,14 @@ function getServiceTimesForRestaurant(Restaurant $restaurant, Carbon $date, $ign
         }
 
         // If the ignore_booking_duration flag is set, ignore booking duration
-        //(this line will throw an error though. because ignore is wrongly spelt)
+        //(this line will throw an error though, because ignore is wrongly spelt)
         if ($service_hour->ingore_booking_duration) {
             $ignoreBookingDuration = true;
         }
 
         // Adjust the closing time, if it's the last service hour and $ignoreBookingDuration is false
         if ($c == count($service_hours) && !$ignoreBookingDuration) {
+            // Subtract the default booking duration from the closing time
             $close->subMinutes($restaurant->default_booking_duration_hours);
         }
 
@@ -91,8 +94,9 @@ function getServiceTimesForRestaurant(Restaurant $restaurant, Carbon $date, $ign
     }
 
 
-    // Remove duplicate booking times and reindex the array
+    // Remove duplicate booking times from the array
     $booking_times = array_unique($booking_times);
+    // Re-index the array to ensure the keys are sequential after removing duplicates
     $booking_times = array_values($booking_times);
 
     // Remove the last time if booking_times is '00:00'
