@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
@@ -17,19 +18,13 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        $user = User::first();
-
-        if (!$user) {
+        if (!Auth::attempt(['email' => config('app.email'), 'password' => $request->password])) {
             throw ValidationException::withMessages([
-                'password' => ['The provided credentials are incorrect.'],
+                'password' => ['The provided password is incorrect.'],
             ]);
         }
 
-        if (!Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'password' => ['The provided credentials are incorrect.'],
-            ]);
-        }
+        $user = Auth::user();
 
         $device = substr($request->userAgent() ?? '', 0, 255);
         $expiresAt = $request->has('remember') ? null : now()->addMinutes(config('session.lifetime'));

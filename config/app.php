@@ -19,6 +19,7 @@ return [
 
     'kanye_quote_url' => env('KANYE_QUOTE_API_URL', 'https://api.kanye.rest'),
     'kanye_quote_limit' => env('KANYE_QUOTE_LIMIT', 5),
+    'email' => 'user@gmail.com',
 
     /*
     |--------------------------------------------------------------------------
