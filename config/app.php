@@ -18,6 +18,7 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     'kanye_quote_url' => env('KANYE_QUOTE_API_URL', 'https://api.kanye.rest'),
+    'kanye_quote_limit' => env('KANYE_QUOTE_LIMIT', 5),
 
     /*
     |--------------------------------------------------------------------------

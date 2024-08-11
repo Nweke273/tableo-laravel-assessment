@@ -10,21 +10,22 @@ class KanyeQuoteService
 {
     protected $client;
     protected $apiUrl;
+    protected $quoteLimit;
 
     public function __construct()
     {
         $this->client = new Client();
         $this->apiUrl = config('app.kanye_quote_url');
+        $this->quoteLimit = config('app.kanye_quote_limit');
     }
 
     public function fetchQuotes()
     {
         $cacheKey = 'kanye_quotes';
         $cacheDuration = now()->addMinutes(10);
-
         try {
             $quotes = [];
-            for ($i = 0; $i < 5; $i++) {
+            for ($i = 0; $i < $this->quoteLimit; $i++) {
                 $response = $this->client->get($this->apiUrl);
                 $quote = json_decode($response->getBody()->getContents(), true)['quote'];
                 $quotes[] = $quote;
