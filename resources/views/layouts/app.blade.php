@@ -47,6 +47,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
+                                @if(Auth::check())
                                 <a href="/" class="dropdown-item ai-icon">
                                     <svg id="icon-home" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M3 9l9-7 9 7v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9z"></path>
@@ -54,7 +55,6 @@
                                     </svg>
                                     <span class="ms-2">Home</span>
                                 </a>
-                                @if(Auth::check())
                                 <form action="{{ route('logout') }}" method="POST" class="dropdown-item ai-icon">
                                     @csrf
                                     <button type="submit" class="btn btn-link text-danger" style="width: 100%; text-align: left; margin-left: -20px;">
