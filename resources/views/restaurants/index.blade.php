@@ -26,7 +26,7 @@
                                         <div class="row gy-4" id="favourite-itemsContent">
                                             <?php $i = 1; ?>
                                             @foreach($restaurants as $restaurant)
-                                            <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="col-md-6 col-lg-6 mb-4">
                                                 <div class="card border-light shadow-sm">
                                                     <a href="javascript:void(0)">
                                                         <img src="{{ asset('images/dish/pic' . $i++ . '.jpg') }}" class="card-img-top img-fluid rounded-top" alt="" style="max-height: 200px; object-fit: cover;">
