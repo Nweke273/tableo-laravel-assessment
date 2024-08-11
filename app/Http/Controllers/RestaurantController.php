@@ -18,20 +18,22 @@ class RestaurantController extends Controller
     {
         $type = $request->query('type', 'all');
 
-        $query = Table::where('restaurant_id', $restaurantId);
+        $restaurant = Restaurant::findOrFail($restaurantId);
+
+        $tablesQuery = $restaurant->tables();
 
         if ($type == 'active') {
-            $query->where('active', true);
+            $tablesQuery->where('active', true);
         }
 
-        $tables = $query->get();
+        $tables = $tablesQuery->get();
 
         $formattedTables = $tables->map(function ($table) {
             return [
                 'name' => $table->name,
                 'min_capacity' => $table->minimum_capacity,
                 'max_capacity' => $table->maximum_capacity,
-                'status' => $table->active == 1 ? 'Active' : 'Inactive',
+                'status' => $table->active ? 'Active' : 'Inactive',
                 'dining_area' => $table->diningArea->name
             ];
         });
