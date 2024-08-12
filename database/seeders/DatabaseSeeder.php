@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
         DB::transaction(function () {
             User::create([
+                'email' => 'user@gmail.com',
                 'password' => Hash::make('12345678')
             ]);
             $indoor = DiningArea::create(['name' => 'Indoor']);
