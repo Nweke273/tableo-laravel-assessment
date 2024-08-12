@@ -50,7 +50,7 @@ class KanyeQuoteService
             if ($cachedQuotes) {
                 return $cachedQuotes;
             } else {
-                return ['Failed to fetch quotes. Please check your internet connection or try a different network.'];
+                return ['Error: Failed to fetch quotes. Please check your internet connection or try a different network.'];
             }
         }
     }
