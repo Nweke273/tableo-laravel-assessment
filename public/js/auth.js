@@ -14,9 +14,6 @@ $(document).ready(function () {
             },
             success: function (response) {
                 console.log("Login successful:", response);
-                var accessToken = response.access_token;
-                localStorage.setItem("accessToken", accessToken);
-                $("#spinner").addClass("d-none");
                 window.location.href = "/quotes-page";
             },
             error: function (xhr) {

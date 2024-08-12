@@ -1,9 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.body.style.visibility = "hidden";
-    $("#quote").hide();
-    $("#loader-text").removeClass("d-none");
-    document.body.style.visibility = "visible";
-    $("#quote").show();
     $("#loader-text").hide();
     function fetchQuotes() {
         return $.ajax({
@@ -17,16 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         "<div class='quote-item'><p>" + quote + "</p></div>"
                     );
                 });
-                $("#loader-text").hide();
-                $("#quote").show();
-                document.body.style.visibility = "visible";
             })
             .fail(function (xhr) {
-                if (xhr.status === 401) {
-                    window.location.href = "/login";
-                } else {
-                    alert("An error occurred. Please try again.");
-                }
+                console.log("Response Text:", xhr.responseText);
+                alert("An error occurred. Please try again.");
             });
     }
 
